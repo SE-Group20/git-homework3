@@ -1,4 +1,3 @@
-import pytest
 from hw2_debugging import mergeSort
 
 # Test cases using pytest
