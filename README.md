@@ -1,4 +1,5 @@
-![Pyflakes workflow](https://github.com/SE-Group20/git-homework3/actions/workflows/pyflakes.yaml/badge.svg)
+![Pyflakes workflow](https://img.shields.io/badge/dynamic/yaml?url=.github%2Fworkflows%2Fpyflakes.yml)
+
 
 ## Group 20
 
