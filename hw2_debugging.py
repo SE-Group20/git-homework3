@@ -24,31 +24,33 @@ print(f"Index of 12: {flawed_linear_search(my_array, 12)}") # Should be 4
 print(f"Index of 1: {flawed_linear_search([], 1)}") # Should be -1
 
 def mergeSort(arr):
-    if (len(arr) == 1):
-        return arr
+    if len(arr) > 1:
+        mid = len(arr) // 2
+        left_arr = arr[:mid]
+        right_arr = arr[mid:]
 
-    half = len(arr)//2
+        mergeSort(left_arr)  # Sort left half IN PLACE
+        mergeSort(right_arr) # Sort right half IN PLACE
 
-    return recombine(mergeSort(arr[:half]), mergeSort(arr[half:]))
+        recombine(arr, left_arr, right_arr)  # Merge back into original arr
 
-def recombine(leftArr, rightArr):
+def recombine(arr, leftArr, rightArr): #Modified to work with the original array
     leftIndex = 0
     rightIndex = 0
-    mergeArr = []  # Initialize as an empty list
+    arrIndex = 0 #Keeps track of the index in the original array
 
     while leftIndex < len(leftArr) and rightIndex < len(rightArr):
-        if leftArr[leftIndex] < rightArr[rightIndex]:
-            mergeArr.append(leftArr[leftIndex])  # Use append
+        if leftArr[leftIndex] <= rightArr[rightIndex]:
+            arr[arrIndex] = leftArr[leftIndex]
             leftIndex += 1
         else:
-            mergeArr.append(rightArr[rightIndex])  # Use append
+            arr[arrIndex] = rightArr[rightIndex]
             rightIndex += 1
+        arrIndex += 1
 
-    # Add remaining elements (important!)
-    mergeArr.extend(leftArr[leftIndex:])  # Use extend for efficiency
-    mergeArr.extend(rightArr[rightIndex:])
-
-    return mergeArr
+    # Add remaining elements
+    arr[arrIndex:arrIndex+len(leftArr[leftIndex:])] = leftArr[leftIndex:]
+    arr[arrIndex:arrIndex+len(rightArr[rightIndex:])] = rightArr[rightIndex:]
 
 
 arr = rand.random_array(20)
