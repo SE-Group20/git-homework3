@@ -11,11 +11,11 @@ def flawed_linear_search(arr, target):
     return -1 
 
 
-
+my_array = [10, 5, 20, 8, 12] ## This doesn't throw Undefined names error
 # Test cases:
 print(f"Index of 20: {flawed_linear_search(my_array, 20)}")  # Should be 2
 # Example usage (add this to test):
-my_array = [10, 5, 20, 8, 12] ## Should throw Undefined names error
+#my_array = [10, 5, 20, 8, 12] ## Should throw Undefined names error
 print(f"Index of 7: {flawed_linear_search(my_array, 7)}")   # Should be -1 
 
 # Add more test cases, especially edge cases (empty array, target at beginning/end).
