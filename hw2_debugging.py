@@ -4,17 +4,18 @@ def flawed_linear_search(arr, target):
     """
     A flawed linear search implementation for debugging practice.
     """
-    for i in range(len(arr) - 1):
+    for i in range(len(arr)):
         if arr[i] == target:
             return i  # Correct case: target found
 
     return -1 
 
-# Example usage (add this to test):
-my_array = [10, 5, 20, 8, 12]
+
 
 # Test cases:
 print(f"Index of 20: {flawed_linear_search(my_array, 20)}")  # Should be 2
+# Example usage (add this to test):
+my_array = [10, 5, 20, 8, 12] ## Should throw Undefined names error
 print(f"Index of 7: {flawed_linear_search(my_array, 7)}")   # Should be -1 
 
 # Add more test cases, especially edge cases (empty array, target at beginning/end).
