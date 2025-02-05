@@ -1,80 +1,6 @@
 import re
 from functools import cmp_to_key
 
-
-def compare_chunk(x: str, y:str) -> int:
-    # if different types, the numeric one is less
-    if x.isdigit() and not y.isdigit():
-        return -1
-    if not x.isdigit() and y.isdigit():
-        return 1
-    
-    # if both strings, compare lexicographically
-    if not x.isdigit() and not y.isdigit():
-        return 1 if x > y else -1
-    
-    # if both numbers:
-    if x.isdigit() and y.isdigit():
-        x_int = int(x)
-        y_int = int(y)
-        if x_int == y_int:
-            return 0
-        return 1 if x_int > y_int else -1
-    
-    return 0
-
-
-def natural_compare_bad(x: str, y:str) -> int:
-    """Compare two strings in a natural order."""
-    chunks_x = []
-    chunks_y = []
-
-    current_chunk = ""
-    current_chunk_type_is_digit = False
-    for c in x:
-        if c.isdigit():
-            if not current_chunk_type_is_digit:
-                chunks_x.append(current_chunk)
-                current_chunk = ""
-                current_chunk_type_is_digit = True
-            current_chunk += c
-        else:
-            if current_chunk_type_is_digit:
-                chunks_x.append(current_chunk)
-                current_chunk = ""
-                current_chunk_type_is_digit = False
-            current_chunk += c
-
-    chunks_x.append(current_chunk)
-
-    current_chunk = ""
-    current_chunk_type_is_digit = False
-    for c in y:
-        if c.isdigit():
-            if not current_chunk_type_is_digit:
-                chunks_y.append(current_chunk)
-                current_chunk = ""
-                current_chunk_type_is_digit = True
-            current_chunk += c
-        else:
-            if current_chunk_type_is_digit:
-                chunks_y.append(current_chunk)
-                current_chunk = ""
-                current_chunk_type_is_digit = False
-            current_chunk += c
-
-    chunks_y.append(current_chunk)
-
-    for i in range(min(len(chunks_x), len(chunks_y))):
-        cmp = compare_chunk(chunks_x[i], chunks_y[i])
-        if cmp != 0:
-            return cmp
-    if len(chunks_x) < len(chunks_y):
-        return -1
-    elif len(chunks_x) > len(chunks_y):
-        return 1
-    
-    return 0
 def natural_compare_good(x: str, y:str) -> int:
     """Compare two strings in a natural order.
 
@@ -108,7 +34,7 @@ def natural_compare_good(x: str, y:str) -> int:
     return 0
 
 def natural_compare(x: str, y:str) -> int:
-    return natural_compare_bad(x, y)
+    return natural_compare_good(x, y)
 
 def natural_sort(arr: list) -> list:
     """Sort a list of strings in natural order.
