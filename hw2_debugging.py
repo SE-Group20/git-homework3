@@ -26,6 +26,19 @@ def recombine(left_arr, right_arr):
     merge_array.extend(right_arr[right_index:])
     return merge_array
 
+#uraycha - selection sort:
+def selection_sort(arr):
+    '''Finds minimum element from unsorted part and swaps'''
+    for i, _ in enumerate(arr):
+        min_idx = i  # Find the minimum element in the unsorted part of the array
+        for j in range(i+1, len(arr)):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+    return arr
+
 arr_in = rand.random_array([None] * 20)
 arr_out = merge_sort(arr_in)
+arr_in_sel_sort = rand.random_array([None] * 10)
+arr_sel_sort = selection_sort(arr_in)
 print(arr_out)

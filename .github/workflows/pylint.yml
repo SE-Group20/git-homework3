@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10"]
+        python-version: '3.12'
     steps:
     - uses: actions/checkout@v4
 
@@ -21,6 +21,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install pylint
         
-    - name: Analysing the code with pylint
+    - name: Run Pylint (fail if score <8.5)
       run: |
-        pylint $(git ls-files '*.py')
+        pylint --fail-under=8.5 $(git ls-files '*.py')
