@@ -1,36 +1,35 @@
-import rand
+from .rand import random_array
+
 
 def mergeSort(arr):
-    if (len(arr) == 1):
+    if len(arr) <= 1:
         return arr
-
-    half = len(arr)//2
-
-    return recombine(mergeSort(arr[:half]), mergeSort(arr[half:]))
+    
+    mid = len(arr) // 2
+    left_arr = mergeSort(arr[:mid])
+    right_arr = mergeSort(arr[mid:])
+    return recombine(left_arr, right_arr)
 
 def recombine(leftArr, rightArr):
     leftIndex = 0
     rightIndex = 0
-    mergeArr = [None] * (len(leftArr) + len(rightArr))
-    while leftIndex < len(leftArr) and rightIndex < len(rightArr):
-        if leftArr[leftIndex] < rightArr[rightIndex]:
-            rightIndex += 1
-            mergeArr[leftIndex + rightIndex] = leftArr[leftIndex]
-        else:
-            leftIndex += 1
-            mergeArr[leftIndex + rightIndex] = rightArr[rightIndex]
+    mergeArr = []  # Start with an empty list and append
 
-    for i in range(rightIndex, len(rightArr)):
-        mergeArr[leftIndex + rightIndex] = rightArr[i]
-    
-    for i in range(leftIndex, len(leftArr)):
-        mergeArr[leftIndex + rightIndex] = leftArr[i]
+    while leftIndex < len(leftArr) and rightIndex < len(rightArr):
+        if leftArr[leftIndex] <= rightArr[rightIndex]: # <= handles duplicates correctly
+            mergeArr.append(leftArr[leftIndex])
+            leftIndex += 1
+        else:
+            mergeArr.append(rightArr[rightIndex])
+            rightIndex += 1
+
+    # Add any remaining elements from left or right (only one of these will execute)
+    mergeArr.extend(leftArr[leftIndex:])  # Efficiently adds the rest
+    mergeArr.extend(rightArr[rightIndex:])
 
     return mergeArr
 
-arr = rand.random_array([None] * 20)
+arr = random_array([None] * 20)
 arr_out = mergeSort(arr)
 
 print(arr_out)
-
-
