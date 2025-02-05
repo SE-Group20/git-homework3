@@ -35,21 +35,21 @@ def recombine(leftArr, rightArr):
     leftIndex = 0
     rightIndex = 0
     mergeArr = []  # Initialize as an empty list
+
     while leftIndex < len(leftArr) and rightIndex < len(rightArr):
         if leftArr[leftIndex] < rightArr[rightIndex]:
-            rightIndex += 1
-            mergeArr[leftIndex + rightIndex] = leftArr[leftIndex]
-        else:
+            mergeArr.append(leftArr[leftIndex])  # Use append
             leftIndex += 1
-            mergeArr[leftIndex + rightIndex] = rightArr[rightIndex]
+        else:
+            mergeArr.append(rightArr[rightIndex])  # Use append
+            rightIndex += 1
 
-    for i in range(rightIndex, len(rightArr)):
-        mergeArr[leftIndex + rightIndex] = rightArr[i]
-    
-    for i in range(leftIndex, len(leftArr)):
-        mergeArr[leftIndex + rightIndex] = leftArr[i]
+    # Add remaining elements (important!)
+    mergeArr.extend(leftArr[leftIndex:])  # Use extend for efficiency
+    mergeArr.extend(rightArr[rightIndex:])
 
     return mergeArr
+
 
 arr = rand.random_array(20)
 arr_out = mergeSort(arr)
