@@ -1,3 +1,4 @@
+"""This module contains the mergeSort function."""
 import rand
 
 def flawed_linear_search(arr, target):
@@ -7,8 +8,7 @@ def flawed_linear_search(arr, target):
     for i in range(len(arr)):
         if arr[i] == target:
             return i  # Correct case: target found
-
-    return -1 
+    return -1
 
 
 my_array = [10, 5, 20, 8, 12] ## This doesn't throw Undefined names error
@@ -16,45 +16,44 @@ my_array = [10, 5, 20, 8, 12] ## This doesn't throw Undefined names error
 print(f"Index of 20: {flawed_linear_search(my_array, 20)}")  # Should be 2
 # Example usage (add this to test):
 #my_array = [10, 5, 20, 8, 12] ## Should throw Undefined names error
-print(f"Index of 7: {flawed_linear_search(my_array, 7)}")   # Should be -1 
+print(f"Index of 7: {flawed_linear_search(my_array, 7)}")   # Should be -1
 
 # Add more test cases, especially edge cases (empty array, target at beginning/end).
 print(f"Index of 10: {flawed_linear_search(my_array, 10)}") # Should be 0
 print(f"Index of 12: {flawed_linear_search(my_array, 12)}") # Should be 4
 print(f"Index of 1: {flawed_linear_search([], 1)}") # Should be -1
 
-def mergeSort(arr):
-    if len(arr) > 1:
-        mid = len(arr) // 2
-        left_arr = arr[:mid]
-        right_arr = arr[mid:]
+def merge_sort(input_arr):
+    """Sorts an array using the merge sort algorithm."""
+    if len(input_arr) > 1:
+        mid = len(input_arr) // 2
+        left_arr = input_arr[:mid]
+        right_arr = input_arr[mid:]
 
-        mergeSort(left_arr)  # Sort left half IN PLACE
-        mergeSort(right_arr) # Sort right half IN PLACE
+        merge_sort(left_arr)
+        merge_sort(right_arr)
 
-        recombine(arr, left_arr, right_arr)  # Merge back into original arr
+        recombine(input_arr, left_arr, right_arr)
 
-def recombine(arr, leftArr, rightArr): #Modified to work with the original array
-    leftIndex = 0
-    rightIndex = 0
-    arrIndex = 0 #Keeps track of the index in the original array
+def recombine(arr, left_arr, right_arr):
+    """Recombines two sorted arrays into a single sorted array."""
+    left_index = 0
+    right_index = 0
+    arr_index = 0
 
-    while leftIndex < len(leftArr) and rightIndex < len(rightArr):
-        if leftArr[leftIndex] <= rightArr[rightIndex]:
-            arr[arrIndex] = leftArr[leftIndex]
-            leftIndex += 1
+    while left_index < len(left_arr) and right_index < len(right_arr):
+        if left_arr[left_index] <= right_arr[right_index]:
+            arr[arr_index] = left_arr[left_index]
+            left_index += 1
         else:
-            arr[arrIndex] = rightArr[rightIndex]
-            rightIndex += 1
-        arrIndex += 1
+            arr[arr_index] = right_arr[right_index]
+            right_index += 1
+        arr_index += 1
 
-    # Add remaining elements
-    arr[arrIndex:arrIndex+len(leftArr[leftIndex:])] = leftArr[leftIndex:]
-    arr[arrIndex:arrIndex+len(rightArr[rightIndex:])] = rightArr[rightIndex:]
+    arr[arr_index:arr_index+len(left_arr[left_index:])] = left_arr[left_index:]
+    arr[arr_index:arr_index+len(right_arr[right_index:])] = right_arr[right_index:]
 
-
-arr = rand.random_array(20)
-arr_out = mergeSort(arr)
-
-print(arr_out)
-
+random_array = rand.random_array(20)
+merge_sort(random_array) # Corrected
+sorted_array = random_array # Corrected
+print(sorted_array)
