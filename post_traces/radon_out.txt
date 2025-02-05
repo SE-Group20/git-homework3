@@ -1,0 +1,26 @@
+hw2_debugging.py
+    F 13:0 recombine - A
+    F 4:0 mergeSort - A
+rand.py
+    F 3:0 random_array - A
+test_natural_sort.py
+    M 16:4 TestNaturalCompare.test_num - B
+    C 5:0 TestNaturalCompare - A
+    M 6:4 TestNaturalCompare.test_alpha - A
+    M 11:4 TestNaturalCompare.test_num_single - A
+    M 26:4 TestNaturalCompare.test_alpha_num - A
+    M 31:4 TestNaturalCompare.test_num_alpha - A
+    C 37:0 TestNaturalSort - A
+    M 38:4 TestNaturalSort.test_alpha - A
+    M 43:4 TestNaturalSort.test_num_single - A
+    M 48:4 TestNaturalSort.test_num - A
+    M 52:4 TestNaturalSort.test_alpha_num - A
+    M 56:4 TestNaturalSort.test_num_alpha - A
+    M 60:4 TestNaturalSort.test_mixed - A
+natural_sort.py
+    F 4:0 natural_compare_good - B
+    F 36:0 natural_compare - A
+    F 39:0 natural_sort - A
+test_hw2_debugging.py
+    C 5:0 TestMergeSort - B
+    M 6:4 TestMergeSort.test_merge_sort - B
