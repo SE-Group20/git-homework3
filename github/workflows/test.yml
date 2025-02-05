@@ -1,0 +1,24 @@
+name: Pyflakes pytest  # Give your workflow a descriptive name
+
+on:
+  push:
+    branches: [ main, develop, pkhare ] # Or any other branches you want to trigger tests on
+  pull_request:
+    branches: [ main, develop, pkhare ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Use a suitable runner environment
+
+    steps:
+      - uses: actions/checkout@v3  # Checkout your repository code
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9' # Or specify your Python version (e.g., '3.9')
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip3 install pytest # Install pytest
+      - name: Run tests
+        run: pytest # Run your pytest tests
