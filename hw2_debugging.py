@@ -34,7 +34,7 @@ def mergeSort(arr):
 def recombine(leftArr, rightArr):
     leftIndex = 0
     rightIndex = 0
-    mergeArr = [None] * (len(leftArr) + len(rightArr))
+    mergeArr = []  # Initialize as an empty list
     while leftIndex < len(leftArr) and rightIndex < len(rightArr):
         if leftArr[leftIndex] < rightArr[rightIndex]:
             rightIndex += 1
