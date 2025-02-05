@@ -1,7 +1,7 @@
 """This module contains the unit tests for the mergeSort function."""
 
 import random
-from hw2_debugging import merge_sort
+from hw2_debugging_pkhare import merge_sort
 
 def test_merge_sort_empty_array():
     """Tests mergeSort with an empty array."""

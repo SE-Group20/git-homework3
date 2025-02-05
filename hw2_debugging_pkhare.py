@@ -1,5 +1,5 @@
 """This module contains the mergeSort function."""
-import rand
+import rand_pkhare
 
 def flawed_linear_search(arr, target):
     """
@@ -53,7 +53,7 @@ def recombine(arr, left_arr, right_arr):
     arr[arr_index:arr_index+len(left_arr[left_index:])] = left_arr[left_index:]
     arr[arr_index:arr_index+len(right_arr[right_index:])] = right_arr[right_index:]
 
-random_array = rand.random_array(20)
+random_array = rand_pkhare.random_array(20)
 merge_sort(random_array) # Corrected
 sorted_array = random_array # Corrected
 print(sorted_array)
