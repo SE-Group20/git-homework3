@@ -1,35 +1,44 @@
-from .rand import random_array
+"""This module is to sort an array using merge sort"""
+import rand
 
-
-def mergeSort(arr):
-    if len(arr) <= 1:
+def merge_sort(arr):
+    """split array in half and recombine sorted halves"""
+    if len(arr) == 1:
         return arr
-    
-    mid = len(arr) // 2
-    left_arr = mergeSort(arr[:mid])
-    right_arr = mergeSort(arr[mid:])
-    return recombine(left_arr, right_arr)
 
-def recombine(leftArr, rightArr):
-    leftIndex = 0
-    rightIndex = 0
-    mergeArr = []  # Start with an empty list and append
+    half = len(arr)//2
+    return recombine(merge_sort(arr[:half]), merge_sort(arr[half:]))
 
-    while leftIndex < len(leftArr) and rightIndex < len(rightArr):
-        if leftArr[leftIndex] <= rightArr[rightIndex]: # <= handles duplicates correctly
-            mergeArr.append(leftArr[leftIndex])
-            leftIndex += 1
+def recombine(left_arr, right_arr):
+    """merging sorted halves"""
+    left_index = 0
+    right_index = 0
+    merge_array = []
+    while left_index < len(left_arr) and right_index < len(right_arr):
+        if left_arr[left_index] < right_arr[right_index]:
+            merge_array.append(left_arr[left_index])
+            left_index += 1
         else:
-            mergeArr.append(rightArr[rightIndex])
-            rightIndex += 1
+            merge_array.append(right_arr[right_index])
+            right_index += 1
 
-    # Add any remaining elements from left or right (only one of these will execute)
-    mergeArr.extend(leftArr[leftIndex:])  # Efficiently adds the rest
-    mergeArr.extend(rightArr[rightIndex:])
+    merge_array.extend(left_arr[left_index:])
+    merge_array.extend(right_arr[right_index:])
+    return merge_array
 
-    return mergeArr
+#uraycha - selection sort:
+def selection_sort(arr):
+    '''Finds minimum element from unsorted part and swaps'''
+    for i, _ in enumerate(arr):
+        min_idx = i  # Find the minimum element in the unsorted part of the array
+        for j in range(i+1, len(arr)):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+    return arr
 
-arr = random_array([None] * 20)
-arr_out = mergeSort(arr)
-
+arr_in = rand.random_array([None] * 20)
+arr_out = merge_sort(arr_in)
+arr_in_sel_sort = rand.random_array([None] * 10)
+arr_sel_sort = selection_sort(arr_in)
 print(arr_out)

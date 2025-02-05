@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ************* Module hw3.hw2_debugging
 hw2_debugging.py:4:0: C0325: Unnecessary parens after 'if' keyword (superfluous-parens)
 hw2_debugging.py:25:0: C0303: Trailing whitespace (trailing-whitespace)
@@ -36,4 +37,9 @@ natural_sort.py:110:0: C0116: Missing function or method docstring (missing-func
 
 -----------------------------------
 Your code has been rated at 6.64/10
+=======
+
+-------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 4.83/10, +5.17)
+>>>>>>> main
 
