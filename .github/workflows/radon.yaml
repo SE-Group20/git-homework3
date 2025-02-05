@@ -1,0 +1,27 @@
+name: Run Radon complexity analysis
+on: [push]
+
+jobs:
+  radon-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.12'
+
+      - name: Install Radon
+        run: pip install radon
+
+      - name: Run Radon CC (fail if complexity ≥ C)
+        run: |
+          result=$(radon cc . --min C)
+          if [ -n "$result" ]; then
+            echo "Complexities >= C found:"
+            echo "$result"
+            exit 1
+          fi
+          echo "All complexities are < C"
