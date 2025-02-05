@@ -1,4 +1,4 @@
-![Pyflakes workflow](https://img.shields.io/github/actions/workflow/status/SE-Group20/git-homework3/pyflakes.yml)
+![Pyflakes workflow](https://img.shields.io/github/actions/workflow/status/SE-Group20/git-homework3/pyflakes.yml?label=Pyflakes)
 
 
 
