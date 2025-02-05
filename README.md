@@ -1,5 +1,5 @@
 ![Pyflakes workflow](https://img.shields.io/github/actions/workflow/status/SE-Group20/git-homework3/pyflakes.yml?label=Pyflakes)
-![Pyflakes test](https://github.com/SE-Group20/git-homework3/actions/workflows/pyflakes.yml/badge.svg)]
+![Pyflakes test](https://github.com/SE-Group20/git-homework3/actions/workflows/pyflakes.yml/badge.svg)
 
 ## Group 20
 
