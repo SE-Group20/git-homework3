@@ -1,1 +1,0 @@
-hw2_debugging.py:16:44: undefined name 'my_array'
