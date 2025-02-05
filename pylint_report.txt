@@ -1,0 +1,39 @@
+************* Module hw3.hw2_debugging
+hw2_debugging.py:4:0: C0325: Unnecessary parens after 'if' keyword (superfluous-parens)
+hw2_debugging.py:25:0: C0303: Trailing whitespace (trailing-whitespace)
+hw2_debugging.py:36:0: C0305: Trailing newlines (trailing-newlines)
+hw2_debugging.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+hw2_debugging.py:1:0: E0401: Unable to import 'rand' (import-error)
+hw2_debugging.py:3:0: C0116: Missing function or method docstring (missing-function-docstring)
+hw2_debugging.py:3:0: C0103: Function name "mergeSort" doesn't conform to snake_case naming style (invalid-name)
+hw2_debugging.py:3:14: W0621: Redefining name 'arr' from outer scope (line 31) (redefined-outer-name)
+hw2_debugging.py:11:0: C0116: Missing function or method docstring (missing-function-docstring)
+hw2_debugging.py:11:14: C0103: Argument name "leftArr" doesn't conform to snake_case naming style (invalid-name)
+hw2_debugging.py:11:23: C0103: Argument name "rightArr" doesn't conform to snake_case naming style (invalid-name)
+hw2_debugging.py:12:4: C0103: Variable name "leftIndex" doesn't conform to snake_case naming style (invalid-name)
+hw2_debugging.py:13:4: C0103: Variable name "rightIndex" doesn't conform to snake_case naming style (invalid-name)
+hw2_debugging.py:14:4: C0103: Variable name "mergeArr" doesn't conform to snake_case naming style (invalid-name)
+hw2_debugging.py:17:12: C0103: Variable name "rightIndex" doesn't conform to snake_case naming style (invalid-name)
+hw2_debugging.py:20:12: C0103: Variable name "leftIndex" doesn't conform to snake_case naming style (invalid-name)
+************* Module hw3.rand
+rand.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+rand.py:3:0: C0116: Missing function or method docstring (missing-function-docstring)
+rand.py:5:4: C0200: Consider using enumerate instead of iterating with range and len (consider-using-enumerate)
+rand.py:6:23: W1510: 'subprocess.run' used without explicitly defining the value for 'check'. (subprocess-run-check)
+************* Module hw3.natural_sort
+natural_sort.py:11:0: C0303: Trailing whitespace (trailing-whitespace)
+natural_sort.py:15:0: C0303: Trailing whitespace (trailing-whitespace)
+natural_sort.py:23:0: C0303: Trailing whitespace (trailing-whitespace)
+natural_sort.py:76:0: C0303: Trailing whitespace (trailing-whitespace)
+natural_sort.py:122:0: C0304: Final newline missing (missing-final-newline)
+natural_sort.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+natural_sort.py:5:0: C0116: Missing function or method docstring (missing-function-docstring)
+natural_sort.py:72:4: R1705: Unnecessary "elif" after "return", remove the leading "el" from "elif" (no-else-return)
+natural_sort.py:27:0: R0912: Too many branches (14/12) (too-many-branches)
+natural_sort.py:96:12: R1705: Unnecessary "elif" after "return", remove the leading "el" from "elif" (no-else-return)
+natural_sort.py:102:12: R1705: Unnecessary "elif" after "return", remove the leading "el" from "elif" (no-else-return)
+natural_sort.py:110:0: C0116: Missing function or method docstring (missing-function-docstring)
+
+-----------------------------------
+Your code has been rated at 6.64/10
+
