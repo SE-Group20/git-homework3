@@ -1,8 +1,8 @@
-''' This module is for assigning random values to array '''
-import random
+import subprocess
 
 def random_array(arr):
-    """iterate through array and assign random int between 1-20"""
-    for idx, _ in enumerate(arr):
-        arr[idx] = random.randint(1, 20)  # Random number between 1 and 20
+    shuffled_num = None
+    for i in range(len(arr)):
+        shuffled_num = subprocess.run(["shuf", "-i1-20", "-n1"], capture_output=True)
+        arr[i] = int(shuffled_num.stdout)
     return arr
